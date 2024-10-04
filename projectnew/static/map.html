@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Lakes Map</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <!-- Font Awesome and Google Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="/"><img src="/static/images/Logo_eray-removebg-preview.png" alt="Eray GmbH Logo"></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>    
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/lake-list">LAKE LIST</a></li>
+                <li><a href="/map">MAP</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+    <h1>Interactive Lakes Map</h1>
+
+    <!-- Trophic State Index Table -->
+    <div id="trophic-index-table">
+        <h3>Trophic State Index</h3>
+        <table>
+            <tr>
+                <th>Chlorophyll (µg/L)</th>
+                <th>Trophic State</th>
+            </tr>
+            <tr>
+                <td>&lt; 2</td>
+                <td>Oligotrophic</td>
+            </tr>
+            <tr>
+                <td>2 - 6</td>
+                <td>Mesotrophic</td>
+            </tr>
+            <tr>
+                <td>6 - 40</td>
+                <td>Eutrophic</td>
+            </tr>
+            <tr>
+                <td>&gt; 40</td>
+                <td>Hypereutrophic</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="controls">
+        <select id="lake-dropdown">
+            <option value="">Select a lake</option>
+        </select>
+        <input type="date" id="date-input" placeholder="Enter a date">
+        <button id="fetch-data-button" class="button">Fetch Data</button>
+    </div>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="/static/script.js"></script>
+    <!-- JavaScript for Toggle Menu -->
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+    </script>
+</body>
+</html>

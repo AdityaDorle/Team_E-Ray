@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Lakes by State</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="lake-list-page">
+    <h1>List of Lakes by State</h1>
+    <div id="lake-list"></div>
+    <input type="date" id="date-input" placeholder="Enter a date" class="date-input">
+    <button id="fetch-data-button" class="button">Fetch Data</button>
+    <script>
+        fetch('/api/lakes')
+            .then(response => response.json())
+            .then(data => {
+                const lakeListDiv = document.getElementById('lake-list');
+                for (const [state, lakes] of Object.entries(data)) {
+                    const stateHeader = document.createElement('h2');
+                    stateHeader.textContent = state;
+                    lakeListDiv.appendChild(stateHeader);
+                    const lakeUl = document.createElement('ul');
+                    lakes.forEach(lake => {
+                        const lakeLi = document.createElement('li');
+                        lakeLi.textContent = lake.name;
+                        lakeLi.addEventListener('click', () => {
+                            document.querySelectorAll('#lake-list li').forEach(li => li.classList.remove('selected'));
+                            lakeLi.classList.add('selected');
+                        });
+                        lakeUl.appendChild(lakeLi);
+                    });
+                    lakeListDiv.appendChild(lakeUl);
+                }
+            })
+            .catch(error => console.error('Error fetching lake list:', error));
+        
+        document.getElementById('fetch-data-button').addEventListener('click', () => {
+            const selectedLakeElement = document.querySelector('#lake-list li.selected');
+            if (!selectedLakeElement) {
+                alert("Please select a lake first.");
+                return;
+            }
+            const lakeName = selectedLakeElement.textContent;
+            const selectedDate = document.getElementById('date-input').value;
+            if (!selectedDate) {
+                alert("Please select a date.");
+                return;
+            }
+            const queryString = `name=${lakeName}&date=${selectedDate}`;
+            window.location.href = `/lake-details?${queryString}`;
+        });
+    </script>
+</body>
+</html>

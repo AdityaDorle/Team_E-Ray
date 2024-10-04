@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Eray GmbH</title>
+    <!-- Font Awesome and Google Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<section class="header">
+    <nav>
+        <a href="/"><img src="/static/images/Logo_eray-removebg-preview.png"></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>    
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/lake-list">LAKE LIST</a></li>
+                <li><a href="/map">MAP</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <div class="text-box">
+        <h1>Water Quality Data</h1>
+        <p>To achieve climate resilience in cities and municipalities,<br>
+            we must not only be prepared for water shortages and floods,<br>
+            but also transform our cities - with clean energy and as sponge cities. <br>
+            We supply hardware and software to digitize water bodies, <br>
+            advice on climate adaptation and components for critical infrastructure.<br>
+        </p>
+        <a href="/map" class="hero-btn">Visit Us To Know More</a>
+    </div>  
+</section>
+
+<!-- TRAILERS -->
+<section class="trailers">
+    <h1>Water Quality Parameters</h1>
+    <p>There are several types of parameters which affect the water quality. <br>But as of now we are only taking these 3 parameters into consideration.</p>
+    <div class="row">
+        <div class="trailer-col">
+            <h3>Chlorophyll</h3>
+            <p>Chlorophyll a concentrations are an indicator of phytoplankton
+                abundance and biomass in coastal and estuarine waters.
+                They can be an effective measure of trophic status1,
+                are potential indicators of maximum photosynthetic rate (P-max)2
+                and are a commonly used measure of water quality.</p>
+        </div>
+        <div class="trailer-col">
+            <h3>Total Phosphorous</h3>
+            <p>Too much phosphorus can stimulate excess growth of algae,
+                which leads to low dissolved oxygen levels,
+                potential for harmful algal toxins,
+                blockage of sunlight needed by organisms and plants
+                in the water and degraded habitat conditions for benthic
+                macroinvertebrates and other aquatic life</p>
+        </div>
+        <div class="trailer-col">
+            <h3>Secchi Disk Transparency</h3>
+            <p>Secchi Disk Transparency is a quick,
+                simple and accurate method for determining lake water quality.
+                Transparency is a measurement of how deep into a lake the sunlight
+                can penetrate..</p>
+        </div>
+    </div>
+</section>
+
+<!-- Call To Action -->
+<section class="cta">
+    <h1>List of Lakes</h1>
+    <a href="/lake-list" class="hero-btn">LAKE LIST</a>
+</section>
+
+<!-- Footer -->
+<section class="footer">
+    <h4>ABOUT US</h4>
+    <p>We are an organisation who focuses on helping with the maintainance of water quality.
+    </p>
+    <p>Made By <i class="fa fa-bolt"></i>Group 6<i class="fa fa-bolt"></i></p>
+</section>
+
+<!-- JavaScript for Toggle Menu -->
+<script>
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right = "0"
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px"
+    }
+</script>
+</body>
+</html>
